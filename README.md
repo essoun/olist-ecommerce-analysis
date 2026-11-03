@@ -38,15 +38,15 @@ E-commerce datasets contain multiple related tables with different row-level gra
 
 ## Environment and Prerequisites
 
-Locally tested with Python 3.14, Pandas 3.0.6, Jupyter Notebook Classic and the registered 'Python (Olist Data Engineering)' kernel. A portable, independently tested environment setup has not yet been completed.
+Locally tested with Python 3.14, Pandas 3.0.6, Jupyter Notebook Classic and the registered 'Python (Olist Data Engineering)' kernel. The analysis was tested locally; a completely independent environment reproduction has not yet been verified.
 
 ## Installation and Setup
 
-Obtain the Olist CSV datasets and place them in data/raw/. Select the Python (Olist Data Engineering) kernel.
+Obtain the nine Olist CSV datasets and place them in `data/raw/`. Select the Python kernel associated with your configured environment.
 
 ## How to Run
 
-The corrected notebook notebooks/01_olist_data_exploration_execution_candidate_v3.ipynb completed fresh-kernel execution locally. Its saved execution evidence is notebooks/01_olist_data_exploration_executed_test_v3.ipynb. The existing local execution uses the Olist CSV source files from the original data project. Verify data path configuration before attempting reproduction from a new repository clone.
+Open `notebooks/01_olist_data_exploration_publication_v2.ipynb` in Jupyter Notebook Classic. This is the published notebook containing saved results from a verified local execution. Download the source datasets and configure your environment before re-running it.
 
 ## Methodology and Implementation
 
@@ -67,12 +67,12 @@ Loaded CSV datasets into Pandas DataFrames, identified table grain and relations
 - Reconciled recorded payments totaling R$16,008,872.12. (Evidence: Aggregated payment_total matched the original payments.payment_value sum within 0.01.)
 - Identified 775 orders without matching item records. (Evidence: Left-join analysis identified 603 unavailable, 164 canceled, 5 created, 2 invoiced, and 1 shipped order without matching item records.)
 - Identified one delivered order without a matching payment record. (Evidence: The unmatched delivered order contained three item records, R$134.97 in item prices, and R$8.49 in freight, with payment_total missing.)
-- Successfully executed the corrected 212-cell Olist notebook from a fresh kernel with 116 executed code cells and zero recorded errors. (Evidence: The saved executed_test_v3 notebook was validated with nbformat. Execution counts confirmed 116 completed code cells and zero error outputs. Financial validation messages and totals were reproduced.)
+- Successfully executed the corrected 212-cell Olist notebook from a fresh kernel with 116 executed code cells and zero recorded errors. (Evidence: The publication V2 notebook was validated with nbformat. Execution counts confirmed 116 completed code cells and zero error outputs. Financial validation messages and totals were reproduced.)
 
 
 ## Limitations
 
-- The corrected V3 notebook completed clean-kernel execution in the local Olist environment using nine source CSV datasets. Reproduction elsewhere requires obtaining the datasets and configuring the required Python environment.
+- The notebook underlying publication V2 completed clean-kernel execution in the local Olist environment using nine source CSV datasets. Reproduction elsewhere requires obtaining the datasets and configuring the required Python environment.
 - Financial amounts represent recorded item prices and payments, not necessarily recognized revenue or profit.
 - Missing payment records do not establish that an order was unpaid.
 - Unmatched relationships require business-context review.
@@ -83,11 +83,11 @@ Loaded CSV datasets into Pandas DataFrames, identified table grain and relations
 - Add an automated clean-kernel execution test to the project validation workflow.
 - Add reproducible analytical reports.
 - Expand order-status and delivery-performance analysis.
-- Prepare GitHub publication after reviewing documentation.
+- Improve automated testing and documentation for future releases.
 
 ## GitHub and Portfolio Presentation
 
-Repository link will be added after publication.
+Published repository: https://github.com/essoun/olist-ecommerce-analysis
 
 ## Acknowledgments and Data Attribution
 
@@ -125,6 +125,12 @@ Download the Brazilian E-Commerce Public Dataset by Olist:
 https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 Extract the nine original CSV files into `data/raw/`.
+
+Validate the extracted files using:
+
+`python src/validate_olist_files_portable_v2.py`
+
+The original ZIP archive is optional.
 
 The original datasets are not included in this repository.
 A local symbolic link was used during development,
