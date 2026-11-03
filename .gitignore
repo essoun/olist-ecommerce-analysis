@@ -1,0 +1,68 @@
+# Olist Portfolio — Git Exclusions
+
+# Original datasets and local testing symlink
+/data/raw
+/data/processed/
+/data/**/*.csv
+*.zip
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Local credentials and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Local application configuration
+.aws/
+.kaggle/
+.vscode/
+
+# Generated or temporary reports
+/logs/
+*.log
+
+# Previous portfolio document drafts
+/portfolio_drafts_v1/
+/portfolio_drafts_v2/
+/portfolio_drafts_v3/
+/portfolio_drafts_v4/
+/portfolio_drafts_v5/
+
+# Development notebooks and execution evidence
+/notebooks/*execution_candidate*.ipynb
+/notebooks/*executed_test*.ipynb
+/notebooks/*runtime_test*.ipynb
+/notebooks/*portfolio_validated*.ipynb
+/notebooks/*portfolio_markdown_repaired*.ipynb
+/notebooks/*github_candidate*.ipynb
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Previous notebook versions retained locally
+/notebooks/01_olist_data_exploration.ipynb
+/notebooks/01_olist_data_exploration_One.ipynb
+/notebooks/01_olist_data_exploration_cleaned.ipynb
+/notebooks/01_olist_data_exploration_fence_repaired.ipynb
+/notebooks/01_olist_data_exploration_markdown_candidate.ipynb
+/notebooks/01_olist_data_exploration_portfolio_ready.ipynb
+
+# Local Git configuration backup
+/.gitignore.before_notebook_cleanup.bak
+
+# Original validator retained locally
+/src/validate_olist_files.py
